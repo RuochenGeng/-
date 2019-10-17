@@ -44,6 +44,8 @@ $.ajax({
     url: "/users",
 
     success: function(response) {
+        console.log(response);
+
         var html = template('userTpl', { data: response });
         $('#userBox').html(html)
     }
