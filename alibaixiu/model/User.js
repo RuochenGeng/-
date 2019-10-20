@@ -51,7 +51,7 @@ const UserSchema = new Schema({
 		required: true,
 		default: 1
 	}
-}, { versionKey: false });
+}, {versionKey: false});
 
 // 用户集合类
 const User = mongoose.model('User', UserSchema);
@@ -89,7 +89,7 @@ const validateLogin = user => {
 	});
 }
 
-User.findOne({ 'email': 'itheima@itcast.cn' }).then(async result => {
+User.findOne({'email': 'itheima@itcast.cn'}).then(async result => {
 	if (result == null) {
 		// 生成盐
 		const salt = await bcrypt.genSalt(10);
