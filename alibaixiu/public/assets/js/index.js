@@ -3,7 +3,6 @@ $.ajax({
     type: 'get',
     url: '/posts/count',
     success: function(response) {
-        console.log(response)
         $('#post').html('<strong>' + response.postCount + '</strong>篇文章（<strong>' + response.draftCount + '</strong>篇草稿）')
     }
 });

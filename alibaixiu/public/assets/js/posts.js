@@ -35,7 +35,6 @@ $.ajax({
     type: 'get',
     url: '/categories',
     success: function(response) {
-        console.log(response)
         var html = template('categoryTpl', { data: response });
         $('#categoryBox').html(html);
     }

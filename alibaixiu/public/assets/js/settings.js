@@ -14,7 +14,6 @@ $('#logo').on('change', function() {
         processData: false,
         contentType: false,
         success: function(response) {
-            console.log(response)
             $('#hiddenLogo').val(response[0].logo)
                 // 将logo图片显示在页面中
             $('#preview').attr('src', response[0].logo)
@@ -31,8 +30,24 @@ $('#settingsForm').on('submit', function() {
         url: "/settings",
         data: formData,
         success: function(response) {
+
             location.reload();
         }
     });
     return false;
 })
+
+
+$.ajax({
+    type: "get",
+    url: "/settings",
+    success: function(response) {
+        if (response) {
+            $('#hiddenLogo').val(response.logo);
+            $('#preview').attr('src', response.logo);
+            $('input[name="title"]').val(response.title);
+            $('input[name="comment"]').prop('checked', response.comment);
+            $('input[name="review"]').prop('checked', response.review);
+        }
+    }
+});
